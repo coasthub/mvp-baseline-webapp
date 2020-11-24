@@ -13,6 +13,7 @@ const Hero = (props) => {
                     <img className="logonav" src={logo} alt="logo"/>
                     <h1>CoastHub</h1>
                 </div>
+                <h1>{user.userEmail}</h1>
                 <button onClick={handleLogout}>Sair</button>
             </nav>
         </section>
