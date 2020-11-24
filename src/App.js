@@ -71,6 +71,7 @@ function App(){
     const authListener = () => {
         fire.auth().onAuthStateChanged(user => {
             if(user){
+
                 clearInputs()
                 setUser(user)
             }else{
@@ -91,7 +92,7 @@ function App(){
     return (
         <div className="App">
         {user ? (
-            <Hero handleLogout={handleLogout}/>  
+            <Hero handleLogout={handleLogout} user={user}/>  
         ) : (
             <LoginForm
             email={email}
