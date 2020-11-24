@@ -1,6 +1,7 @@
 import React from 'react'
 import './../styles/login-page.css'
 import useState from 'react'
+import logo from './../styles/logocoast-removebg-preview.png'
 
 
 function LoginForm(props){
@@ -21,6 +22,7 @@ function LoginForm(props){
        
         <section className="login">
             <div className="loginContainer">
+            <img className="logoform" src={logo} alt="logo"/>
                 <h1>Coast Hub</h1>
                 <label>Email</label>
                 <input
