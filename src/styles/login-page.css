@@ -21,8 +21,12 @@ button {
   letter-spacing: 1px;
   background: rgb(93, 169, 255);
   cursor: pointer;
-} :hover{
-  color: black;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+
+button:hover {
+  color: #2E2F37;
 }
 
 .login {
@@ -135,6 +139,44 @@ button {
 .hero nav button {
   width: 86px;
   padding: 8px 0;
-  background: #eb5e00;
 }
 
+.navbar-menu {
+  margin: auto;
+  width: 100%;
+  margin-top: 150px;
+  margin-bottom: 15px;
+  max-width: 520px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+
+.navbar-menu button {
+    background: rgb(255, 255, 255);
+    border: 5px;
+    color: #2E2F37;
+}
+
+.navbar-menu button:hover{
+    font-size: 20px;
+}
+
+.dashboard {
+  margin: auto;
+  margin-bottom: 0%;
+  width: 100%;
+  max-width: auto;
+  max-height: auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
