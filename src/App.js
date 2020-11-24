@@ -1,41 +1,113 @@
-import logo from './logo.svg';
-import { useState, useEffect } from 'react'
-import socketIo from 'socket.io-client'
-import './App.css';
+import { React, useState , useEffect } from 'react'
+import './styles/login-page.css'
+import LoginForm from './components/LoginForm'
+import fire from './firebase'
+import Hero from './components/hero'
 
-function App() {
-  const [orders, setOrders] = useState([])
 
-  useEffect(() => {
-    fetch("http://localhost:3030/sellerOrders", {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ "sellerId": "5fb99d4a3ef2ad16b444ade0" })
-    })
-      .then((res) => res.json())
-      .then(setOrders)
+function App(){
 
-      const socket = socketIo("http://localhost:3030/", {
-        transports: ['websocket']
-      })
+    const [user,setUser] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [emailError,setEmailError] = useState("")
+    const [passwordError,setPasswordError] = useState("")
+    const [hasAccount, setHasAccount] = useState(false)
 
-      socket.on('newOrder', (order) => {
-        setOrders((pastOrders) => [order, ...pastOrders])
-      })
-  })
+    const clearInputs = () => {
+        
+        setEmail('')
+        setPassword('')
+    }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {orders.map(order =>(
-          <p key={order._id}>{order.clientName}</p>
-          // <p>{order.clientAdress}</p>
+    const clearError = () => {
+        
+        setEmailError('')
+        setPasswordError('')
+    }
 
-        ))}
-      </header>
-    </div>
-  );
+    const handleLogin = () => {
+        
+        clearInputs()
+        clearError()
+
+        fire
+        .auth()
+            .signInWithEmailAndPassword(email,password)
+            .catch((error) => {
+               switch (error.code) {
+                   case "auth/invalid-email":
+                   case "auth/user-not-found":
+                    setEmailError(error.message)
+                       break;
+                   case "auth/wrong-password":
+                    setPasswordError(error.mesage)
+                       break;
+               }
+            })
+    }
+
+    const handleSignUp = () => {
+
+        clearInputs()
+        clearError()
+
+        fire
+            .auth()
+                .createUserWithEmailAndPassword(email,password)
+                .catch((error) => {
+                    switch (error.code) {
+                        case "auth/email-already-in-use":
+                        case "auth/invalid-email":
+                            setEmailError(error.message)
+                            break;
+                        case "auth/weak-password":
+                            setPasswordError(error.mesage)
+                            break;
+                }
+        })
+    }
+
+    const authListener = () => {
+        fire.auth().onAuthStateChanged(user => {
+            if(user){
+                clearInputs()
+                setUser(user)
+            }else{
+                setUser('')
+            }
+        })
+    }
+
+    const handleLogout = () => {
+       
+        fire.auth().signOut()
+    }
+
+    useEffect(() => {
+        authListener()
+    }, [])
+
+    return (
+        <div className="App">
+        {user ? (
+            <Hero handleLogout={handleLogout}/>  
+        ) : (
+            <LoginForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignUp={handleSignUp}
+            hasAccount={hasAccount}
+            setHasAccount={setHasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+            />   
+        )}
+        </div>
+    )
 }
 
-export default App;
+export default App
