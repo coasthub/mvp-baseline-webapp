@@ -7,13 +7,14 @@ function Dashbody(props) {
 
     const {index} = props
 
-    if (index == 0) {
-        return <Produtos/>
-    } if (index == 1) {
-        return <Pedidos/>
-    } if (index == 2) {
-        return <Config/>
+    const objectMenu = {
+        0:<Produtos/>,
+        1:<Pedidos/>,
+        2:<Config/>,
+
     }
+
+    return objectMenu[index]
 }
 
 export default Dashbody

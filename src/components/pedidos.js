@@ -1,13 +1,14 @@
 import React from 'react'
+import Orders from './orders'
 
 function Pedidos () {
 
     return (
-        <div>
-            <h1>
-                Pedidos
-            </h1>
-        </div>
+            <section className="orders">
+                <Orders title="NOVOS PEDIDOS"/>
+                <Orders title="EM ANDAMENTO"/>
+                <Orders title="FINALIZADOS"/>
+            </section>
     )
 }
 
