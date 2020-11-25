@@ -5,12 +5,12 @@ import Config from './config'
 
 function Dashbody(props) {
 
-    const {index} = props
+    const {index,user} = props
 
     const objectMenu = {
         0:<Produtos/>,
         1:<Pedidos/>,
-        2:<Config/>,
+        2:<Config user={user}/>
 
     }
 

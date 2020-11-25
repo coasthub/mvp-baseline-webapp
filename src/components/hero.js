@@ -15,11 +15,11 @@ const Hero = (props) => {
                     <h1>Coast Hub</h1>
                 </div>
                 <div className="row">
-                <h1>{user.email}  </h1>
+                <h1>{user.displayName}</h1>
                 <button onClick={handleLogout}>Sair</button>
                 </div>
             </nav>
-            <Menu />
+            <Menu user={user}/>
         </section>
     )
 }

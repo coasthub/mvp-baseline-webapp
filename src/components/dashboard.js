@@ -4,11 +4,11 @@ import Dashbody from './dashbody'
 
 function Dashboard(props) {
 
-    const {index} = props
+    const {index, user} = props
 
     return (
             <section className="dashboard">
-                <Dashbody index={index}/>
+                <Dashbody user={user} index={index}/>
             </section>
     )
 }
