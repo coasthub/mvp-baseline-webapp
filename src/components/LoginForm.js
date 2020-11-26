@@ -7,6 +7,8 @@ function LoginForm(props){
 
     const { email,
             password,
+            setConfirmPass,
+            confirmpass,
             setEmail,
             setPassword,
             handleLogin,
@@ -14,8 +16,20 @@ function LoginForm(props){
             emailError,
             passwordError,
             hasAccount,
-            setHasAccount
+            setHasAccount,
+            setPasswordError,
+            setEmailError
         } = props
+
+        function buttonSwitch(){
+            
+            setHasAccount(!hasAccount)
+            
+            setEmail('')
+            setPassword('')
+            setEmailError('')
+            setPasswordError('')
+        }
 
     return (
        
@@ -41,20 +55,36 @@ function LoginForm(props){
                 onChange={(event) => setPassword(event.target.value)}
                 />
                 <p className="errorMsg">{passwordError}</p>
+                <div>
+                    {hasAccount ? (
+                               <></>
+                    ) : (
+                        <>
+                        <label>Confirmar Senha</label>
+                        <input
+                        type="password"
+                        autoFocus
+                        required
+                        value={confirmpass}
+                        onChange={(event) => setConfirmPass(event.target.value)}
+                        />
+                    </>
+                    )}
+                </div>
                 <div className="btnContainer">
                     {hasAccount ? (
                         <>
                             <button onClick={handleLogin}>
                                 Logar
                             </button>
-                            <p>Ainda não tem conta?<span onClick={() => setHasAccount(!hasAccount)}>Criar Conta</span></p>
+                            <p>Ainda não tem conta?<span onClick={() => {buttonSwitch()}}>Criar Conta</span></p>
                         </>
                     ) : (
                         <>
                             <button onClick={handleSignUp}>
                                 Cadastrar-se
                             </button>
-                            <p>Já possui conta?<span onClick={() => setHasAccount(!hasAccount)}>Logar</span></p>
+                            <p>Já possui conta?<span onClick={() => {buttonSwitch()}}>Logar</span></p>
                         </>
                     )}
                 </div>

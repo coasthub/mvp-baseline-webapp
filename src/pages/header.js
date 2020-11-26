@@ -1,12 +1,22 @@
 import React from 'react'
 import logo from './../styles/logocoast-removebg-preview.png'
-import Menu from './../components/menu'
+import Menu from '../components/menu'
 
 
 const Hero = (props) => {
 
-
     const { handleLogout, user} = props
+
+    function showUserName (user){
+
+        if(user.displayName){
+            return (<h1>{user.displayName}</h1>)
+        } else {
+            return (<h1>Cadastre seu estabelecimento em "Configurações"</h1>)
+        }
+
+    }
+
     return (
         <section className="hero">
             <nav>
@@ -15,7 +25,7 @@ const Hero = (props) => {
                     <h1>Coast Hub</h1>
                 </div>
                 <div className="row">
-                <h1>{user.displayName}</h1>
+                    {showUserName(user)}
                 <button onClick={handleLogout}>Sair</button>
                 </div>
             </nav>

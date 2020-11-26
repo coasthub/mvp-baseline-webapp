@@ -1,7 +1,7 @@
 import React from 'react'
-import Pedidos from './pedidos'
-import Produtos from './produtos'
-import Config from './config'
+import Pedidos from './../../pages/pedidos'
+import Produtos from './../../pages/produtos'
+import Config from '../../pages/config'
 
 function Dashbody(props) {
 

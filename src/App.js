@@ -2,7 +2,7 @@ import { React, useState , useEffect } from 'react'
 import './styles/login-page.css'
 import LoginForm from './components/LoginForm'
 import fire from './firebase'
-import Hero from './components/hero'
+import Hero from './pages/header'
 
 
 function App(){
@@ -10,6 +10,7 @@ function App(){
     const [user,setUser] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const [confirmpass, setConfirmPass] = useState("")
     const [emailError,setEmailError] = useState("")
     const [passwordError,setPasswordError] = useState("")
     const [hasAccount, setHasAccount] = useState(false)
@@ -49,10 +50,11 @@ function App(){
 
     const handleSignUp = () => {
 
-        clearInputs()
-        clearError()
+        if(password == confirmpass){
+            clearInputs()
+            clearError()
 
-        fire
+            fire
             .auth()
                 .createUserWithEmailAndPassword(email,password)
                 .catch((error) => {
@@ -66,6 +68,10 @@ function App(){
                             break;
                 }
         })
+        } else {
+            setPasswordError('Senha e confirmação de senha divergentes')
+        }
+
     }
 
     const authListener = () => {
@@ -97,11 +103,15 @@ function App(){
             email={email}
             setEmail={setEmail}
             password={password}
+            confirmpass={confirmpass}
+            setConfirmPass={setConfirmPass}
             setPassword={setPassword}
             handleLogin={handleLogin}
             handleSignUp={handleSignUp}
             hasAccount={hasAccount}
             setHasAccount={setHasAccount}
+            setEmailError={setEmailError}
+            setPasswordError={setPasswordError}
             emailError={emailError}
             passwordError={passwordError}
             />   

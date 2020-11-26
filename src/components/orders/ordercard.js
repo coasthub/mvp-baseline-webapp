@@ -1,6 +1,8 @@
 import React from 'react'
 
-function OrderCards () {
+function OrderCards (props) {
+
+    const {title} = props
 
     const order = [
         {
@@ -101,7 +103,7 @@ function OrderCards () {
     const loadOrders = (card, index) => {
 
         return(
-            <div className="Card" key={index}>
+            <div className='Card' key={index}>
                     <h1>{card.clientName}</h1>
                     <h2>R${card.orderPrice}</h2>
                     <p>{card.clientAdress}</p>

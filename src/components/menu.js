@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState , useEffect } from 'react'
-import Dashboard from './../components/dashboard'
+import Dashboard from './dashboard/dashboard'
 
 function Menu(props) {
 
