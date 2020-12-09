@@ -1,35 +1,29 @@
 import { React , useState } from 'react'
 import ProfileCard from './../components/config/profilecard'
-import fire from './../firebase'
 
+function updateProfile(userprofile, delivery) {
 
-function Config (props) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userprofile, delivery)
+    };
+    fetch('http://localhost:3001/sellers', requestOptions)
+        .then(response => response.json())
+
+}
+
+function Config () {
         
-    const {user} = props
-    const [edit, setEdit] = useState(false)
-    const [displayname, setDisplayName] = useState(user.displayName)
+    const [userprofile, setUserProfile] = useState({ displayName:'', address:'', address2:'', userCEP:'', openTime:[], cardPay:true })
+    const [delivery, setDelivery] = useState(true)
 
+    const [edit,setEdit] = useState(false)
 
     const handleEdit = () => {
 
         return setEdit(!edit)
 
-    }
-
-    const updateProfile = () => {
-
-        if(displayname !== ''){
-            fire.auth().currentUser.updateProfile({
-                displayName: displayname,
-            })
-            .then(()=>{
-                window.location.reload()
-            });
-            
-        }
-        else {
-            window.alert('Preencha todos os campos')
-        }
     }
 
 
@@ -39,12 +33,12 @@ function Config (props) {
                     <h1>Nome do estabelecimento*</h1>
                     <input
                     className="profile-input"
-                    placeholder="Ex: Hamburgueria do Zé"
+                    placeholder="Digite o nome do estabelecimento"
                     type="text"
                     autoFocus
                     required
-                    value={displayname}
-                    onChange={(event) => setDisplayName(event.target.value)}
+                    value={userprofile.displayName}
+                    onChange={(event) => setUserProfile(event.target.value)}
                     />
                      <h1>CEP*</h1>
                     <input
@@ -53,6 +47,8 @@ function Config (props) {
                     type="text"
                     autoFocus
                     required
+                    value={userprofile.userCEP}
+                    onChange={(event) => setUserProfile(event.target.value)}
                     />
                      <h1>Endereço*</h1>
                     <input
@@ -61,6 +57,8 @@ function Config (props) {
                     type="text"
                     autoFocus
                     required
+                    value={userprofile.address}
+                    onChange={(event) => setUserProfile(event.target.value)}
                     />
                     <div className="config-row">
                         <div className="config-form">
@@ -81,6 +79,8 @@ function Config (props) {
                             type="text"
                             autoFocus
                             required
+                            value={userprofile.address2}
+                            onChange={(event) => setUserProfile(event.target.value)}
                             />
                         </div>
                     </div>
@@ -92,6 +92,16 @@ function Config (props) {
                     autoFocus
                     required
                     />
+                         <h1>Delivery</h1>
+                        {delivery ? (
+                            <>
+                                <button onClick={() => {setDelivery(false)}}>Desabilitar</button>
+                            </>
+                        ) : (
+                            <>
+                            <button onClick={() => {setDelivery(true)}}>Habilitar</button>
+                            </>
+                        )}
                     <div className="config-row">
                         <div className="config-form">
                             <h1>Dias de funcionamento*</h1>
@@ -101,6 +111,8 @@ function Config (props) {
                             type="text"
                             autoFocus
                             required
+                            value={userprofile.openTime}
+                            onChange={(event) => setUserProfile(event.target.value)}
                             />
                         </div>
                         <div className="config-form">
@@ -114,7 +126,8 @@ function Config (props) {
                             />
                         </div>
                     </div>
-                    <button onClick={()=>{updateProfile()}}>Salvar</button>
+               
+                    <button onClick={()=>{updateProfile(userprofile, delivery, handleEdit())}}>Salvar</button>
                     <button className="cancel" onClick={()=>{handleEdit()}}>Cancelar</button>
                     </div>
                 )

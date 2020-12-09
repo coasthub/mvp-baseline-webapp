@@ -1,5 +1,5 @@
 import { React, useState , useEffect } from 'react'
-import './styles/login-page.css'
+import './styles/index.css'
 import LoginForm from './components/LoginForm'
 import fire from './firebase'
 import Hero from './pages/header'

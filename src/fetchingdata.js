@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import socketIo from 'socket.io-client'
 import './App.css';
 
-function fetchingdata() {
+function fetchingData() {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
@@ -36,4 +36,4 @@ function fetchingdata() {
   );
 }
 
-export default fetchingdata;
+export default fetchingData;

@@ -317,3 +317,15 @@ button:hover {
 .config-form input {
   margin-left: 2%;
 }
+
+.Produtos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+}
+
+.Produtos h1 {
+  color: #2E2F37;
+  margin: 10%;
+}

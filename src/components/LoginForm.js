@@ -1,5 +1,5 @@
 import React from 'react'
-import './../styles/login-page.css'
+import './../styles/index.css'
 import logo from './../styles/logocoast-removebg-preview.png'
 
 
