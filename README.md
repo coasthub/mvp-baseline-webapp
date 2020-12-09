@@ -1,10 +1,28 @@
-# Getting Started with Create React App
+# Coast Hub - Front-End MVP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### To Do:
 
-## Available Scripts
+[x] Firebase Authentication;
+[ ] Single Page Web App (React.js):
+    [x]  Pages controlled based on User;
+    [x]  Header;
+    [x]  Menu;
+    [ ]  Products;
+    [ ]  Orders;
+    [ ]  Config;
+[ ] APIs Implementation:
+    [x] sellerCreate;
+    [x] sellerCheck;
+    [ ] sellerUpdate;
+    [x] sellerOrder;
+    [ ] orderUpdate;
+    [ ] sellerProducts;
+    [ ] createProduct;
+[ ] Deploy (coasthub.com.br);
 
-In the project directory, you can run:
+# Directory
+
+
 
 ### `yarn start`
 
