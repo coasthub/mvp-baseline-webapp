@@ -19,21 +19,6 @@
     --[ ] sellerProducts; \
     --[ ] createProduct; \
 [ ] Deploy (coasthub.com.br); 
-    -[x]  Pages controlled based on User; \
-    -[x]  Header; \
-    -[x]  Menu; \
-    -[ ]  Products; \
-    -[ ]  Orders; \
-    -[ ]  Config; \
-[ ] APIs Implementation: \
-    -[x] sellerCreate; \
-    -[x] sellerCheck; \
-    -[ ] sellerUpdate; \
-    -[x] sellerOrder; \
-    -[ ] orderUpdate; \
-    -[ ] sellerProducts; \
-    -[ ] createProduct; \
-[ ] Deploy (coasthub.com.br); \
 
 # Directory
 
