@@ -4,20 +4,20 @@
 
 [x] Firebase Authentication; \
 [ ] Single Page Web App (React.js): \
-    [x]  Pages controlled based on User; \
-    [x]  Header; \
-    [x]  Menu; \
-    [ ]  Products; \
-    [ ]  Orders; \
-    [ ]  Config; \
+    -[x]  Pages controlled based on User; \
+    -[x]  Header; \
+    -[x]  Menu; \
+    -[ ]  Products; \
+    -[ ]  Orders; \
+    -[ ]  Config; \
 [ ] APIs Implementation: \
-    [x] sellerCreate; \
-    [x] sellerCheck; \
-    [ ] sellerUpdate; \
-    [x] sellerOrder; \
-    [ ] orderUpdate; \
-    [ ] sellerProducts; \
-    [ ] createProduct; \
+    -[x] sellerCreate; \
+    -[x] sellerCheck; \
+    -[ ] sellerUpdate; \
+    -[x] sellerOrder; \
+    -[ ] orderUpdate; \
+    -[ ] sellerProducts; \
+    -[ ] createProduct; \
 [ ] Deploy (coasthub.com.br); \
 
 # Directory
