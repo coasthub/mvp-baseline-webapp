@@ -1,4 +1,8 @@
-# Coast Hub - Front-End MVP
+## Coast Hub - Front-End MVP
+
+# Sum Up
+
+A single page app where the user can manage the orders received from the whatsapp chatbot. A WebApp in ReactJS controlled by login/register system, displaying a dashboard where the user is able to register his own products, manage orders and customize his company info. 
 
 ### To Do:
 
