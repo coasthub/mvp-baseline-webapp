@@ -26,15 +26,48 @@ A single page app where the user can manage the orders received from the whatsap
 
 ## Directory
 
-```js
- . 
-  > node-modules
-  > public
-  v src
-   > components
-   > pages
-   > styles
-   package.json
+```bash
+├── Dockerfile
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── components
+│   │   ├── config
+│   │   │   ├── profilecard.js
+│   │   │   └── profilemap.js
+│   │   ├── dashboard
+│   │   │   └── dashboard.js
+│   │   ├── LoginForm.js
+│   │   ├── menu.js
+│   │   └── orders
+│   │       ├── ordercard.js
+│   │       └── orders.js
+│   ├── firebase.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── pages
+│   │   ├── config.js
+│   │   ├── header.js
+│   │   ├── pedidos.js
+│   │   └── produtos.js
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
+│   └── styles
+│       ├── index.css
+│       └── logocoast-removebg-preview.png
+└── yarn.lock
+
  ```
  
  ## Packages (package.json)
