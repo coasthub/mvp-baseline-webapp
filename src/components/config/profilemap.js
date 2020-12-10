@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 
 function UpdateCard(props) {
 
@@ -19,7 +19,7 @@ function UpdateCard(props) {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({"_id":'5fcf7631a96ab82bca71e516'})
+            body: JSON.stringify({"_id":'5fd0fb762d21a07369216c2d'})
         };
         fetch('http://localhost:3030/sellerCheck', requestOptions)
             .then(response => response.json())

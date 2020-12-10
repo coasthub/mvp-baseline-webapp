@@ -1,9 +1,7 @@
 import { React, useState, useEffect } from 'react'
 
 
-function OrderCards (props) {
-
-    const {title} = props
+function OrderCards () {
 
     const [order,setOrder] = useState([])
 

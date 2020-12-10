@@ -10,7 +10,7 @@ const Hero = (props) => {
     function showUserName (user){
 
         if(user.displayName){
-            return (<h1>{user.displayName}</h1>)
+            return (<h1>{user.email}</h1>)
         } else {
             return (<h1>Cadastre seu estabelecimento em "Configurações"</h1>)
         }
